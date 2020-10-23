@@ -1,0 +1,14 @@
+---
+layout: post
+title: Configuring Ubuntu terminal not to show full directory path
+date: '2011-03-20T14:35:00.001+05:00'
+author: Abbas Raza
+tags:
+- ubuntu directory path
+- bashrc
+modified_time: '2011-03-20T14:36:51.696+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-7275514457036729346
+blogger_orig_url: https://abbas-raza.blogspot.com/2011/03/configuring-ubuntu-terminal-not-to-show.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">If you want your terminal not to show complete directory path on command prompt then<br /><br /><ol style="text-align: left;"><li><i>Edit /home/user/.bashrc and replace 'w' in PS1 variable with 'W' like this<br />PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '</i></li><li><i>Run following command to apply changes to your teminal "source /home/user/.bashrc"</i></li></ol><br /></div>

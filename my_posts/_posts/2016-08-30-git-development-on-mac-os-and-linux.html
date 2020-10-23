@@ -1,0 +1,12 @@
+---
+layout: post
+title: git development on MAC OS and linux
+date: '2016-08-30T10:33:00.000+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-08-30T10:33:24.386+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-4237794450481841416
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/08/git-development-on-mac-os-and-linux.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Linux git has different endofline scheme, so when you checkout a git repo on MAC OS,<br />its different if you access the same repo (via VM shared folder) on linux. To sync both linux and MACOS on endofline character do this on MAC:<br /><br />&nbsp; cd git-repo;<br />&nbsp; git config --global core.autocrlf input<br />&nbsp; git rm --cached -r .<br />&nbsp; git reset --hard<br /><br />Now you the shared repo between MACOS and linux will be having same line endings.<br /><br />have fun!</div>

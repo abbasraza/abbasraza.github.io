@@ -1,0 +1,12 @@
+---
+layout: post
+title: printing stack trace of a process without interactive gdb session
+date: '2017-03-31T10:41:00.001+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2017-03-31T14:48:28.282+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-6020293654886092078
+blogger_orig_url: https://abbas-raza.blogspot.com/2017/03/printing-stack-trace-of-process-without.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Use gdb batch feature<br /><br /><br />ubuntu@bifrost:~/abbas$ cat stack.sh<br /><blockquote class="tr_bq">#!/bin/bash<br />pid=$1<br />EXE=`readlink -f /proc/$pid/exe`<br />DIR=`dirname $EXE`<br />cd $DIR<br />gdb $EXE --batch -ex "attach $pid" -ex "thread apply all bt"</blockquote><div><br /></div><div>ubuntu@bifrost:~/abbas$ sudo ./stack.sh PID<br /><br />ubuntu@bifrost:~/abbas$ sudo ./stack.sh 29138<br /><br /><b><span style="font-size: large;">to change print settings:</span></b><br />https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html<br /><br />to print long string add following option in above script:<br />-ex "set print elements unlimited"<br /><br /><br /><br /></div></div>

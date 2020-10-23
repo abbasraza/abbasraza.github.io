@@ -1,0 +1,16 @@
+---
+layout: post
+title: 'ata2: SATA link down;  ata1.00: failed to IDENTIFY (I/O error, err_mask=0x4)'
+date: '2011-04-11T20:27:00.000+05:00'
+author: Abbas Raza
+tags:
+- device tree blob
+- sata linkdown
+- device tree compiler
+- ata i/o error nonsmp
+modified_time: '2011-04-11T20:27:34.930+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-3386528184311128287
+blogger_orig_url: https://abbas-raza.blogspot.com/2011/04/ata2-sata-link-down-ata100-failed-to.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">I was facing this problem while i was booting kernel(non smp) on cpu # 1 only (on a dual core machine).<br /><br />kernel hanged after these messages <br /><br /><br />ata2: SATA link down (SStatus 0 SControl 300)<br />ata3: SATA link down (SStatus 0 SControl 300)<br />ata4: SATA link down (SStatus 0 SControl 300)<br />ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)<br />ata1.00: qc timeout (cmd 0xec)<br />ata1.00: failed to IDENTIFY (I/O error, err_mask=0x4)<br />ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)<br /><br /><br /><br />Then i found what was problem. It was found that when smp is disabled, then i/o APIC is also disabled because we do not need interrupt routing in case of non smp. So now hardware i/o interrupts will always goto boot cpu and somehow those interrupts are not delivered to cpu 1 on which our kernel is booted.<br /><u><b><br />Solution:</b></u><br /><br />When i was creating my device tree blob (dtb) file' it was always created with default option for bootcpu i.e 0. So I change the bootcpu option by passing '-b 1' in dtc command so that my dtb will be created with this option.<br /><br /><i>dtc -I dts&nbsp; -b 1 -O dtb ${KERNEL_DEVICETREE_FLAGS} -o devicetree ${KERNEL_DEVICETREE}</i></div></div>

@@ -1,0 +1,20 @@
+---
+layout: post
+title: Bonding Ethernet Interfaces in Linux
+date: '2011-05-27T17:05:00.003+05:00'
+author: Abbas Raza
+tags:
+- port trunking
+- interface bonding
+- port bundling
+- NIC bonding
+- bonding  driver
+- bonding
+- link bundling
+- port channel
+modified_time: '2011-05-31T12:57:34.281+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-2902638588334210541
+blogger_orig_url: https://abbas-raza.blogspot.com/2011/05/bonding-ethernet-interfaces-in-linux.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">Last days i was facing an issue related to NFS booting. I was booting my target with NFS over interface eth0, but after booting of kernel when i unplugged cable from eth0 and plugged it into eth1, NFS stopped working and system got hanged. I wanted that it must not go like this and should keep working even after changing interfaces from eth0 to eth1.&nbsp; After some effort i found the reason and a workaround.</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br /></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><b>Reason that NFS mounting stops working:</b></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br /></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">For NFS mounting to happen, socket is created and bound to interface eth0. So when we unplug cable from eth0 and connect to eth1, it stops working.</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><b>Workaround:</b></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br /></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;">Ethernet interface bonding&nbsp;</div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br /></div><div style="font-family: &quot;Courier New&quot;,Courier,monospace;"><u><b>Linux Bonding Driver setup:</b></u></div><ol style="font-family: &quot;Courier New&quot;,Courier,monospace;"><li>Build kernel with the bonding driver support<br />Configure kernel and select "Bonding driver support" in the         "Network device support" section, select it as module.<br /><br /></li><li>Build RFS. and follow any method mentioned below<br /><br /></li><li><b>Method 1</b><br /><ul><li>Cross compile             "linux-2.6.*/Documentation/networking/ifenslave.c" and place             binary on rootfs in /sbin/ directory<br /><br /></li><li>Run following commands on target<br />~: modprobe bonding <b>mode=0</b> miimon=100 # load bonding             module<br />~: ifconfig bond0 hw ether 00:11:22:33:44:55 # changing the             MAC address of the bond0 interface<br />~: ifconfig bond0 137.202.156.100 up # to set ethX             interfaces as slave the bond0 must have an ip.<br />~: ifenslave bond0 eth0 # putting the eth0 interface in the             slave mod for bond0<br />~: ifenslave bond0 eth1 # putting the eth1 interface in the             slave mod for bond0<br /><br /></li></ul></li><li><b>Method 2</b><br /><ul><li>Place following commands in a script bond.sh and place it             in /etc/rcS.d directory so that it can be executed at boot             time<br />modprobe bonding<br />echo 6 &gt; /sys/class/net/bond0/bonding/mode<br />ifconfig bond0 137.202.156.100 up<br />echo 100 &gt; /sys/class/net/bond0/bonding/miimon<br />echo +eth0 &gt; /sys/class/net/bond0/bonding/slaves<br />echo +eth1 &gt; /sys/class/net/bond0/bonding/slaves<br /><br /><br /></li></ul></li><li>Now you can unplug eth0 and connect to eth1... every things         will work fine and you will be able to ping 137.202.156.100 even         after changing interfaces eth0/eth1. </li></ol>Reference:&nbsp;<a href="http://www.linuxhorizon.ro/bonding.html">Ethernet Bonding </a> <br /><ol style="font-family: &quot;Courier New&quot;,Courier,monospace;"></ol></div>

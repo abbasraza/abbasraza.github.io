@@ -1,0 +1,12 @@
+---
+layout: post
+title: Reverse SSH
+date: '2016-09-22T10:40:00.000+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-09-22T10:40:06.567+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-7377387365224262701
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/09/reverse-ssh.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br />your computer[146.108.214.26] <---> NAT <----> Test Computer[any local ip] [username:ubuntu]</----></---><br /><br />you want to ssh Test Computer from your computer?<br /><br /><br /><br />1) On Test Computer:<br />================<br />sshpass -v -p 'password_here' ssh -o StrictHostKeyChecking=no -R 19999:localhost:22 abbasraza@146.108.214.26<br /><br />2) On your computer:<br />================<br /><br />ssh localhost -p 19999 -l ubuntu<br /><br /></div>

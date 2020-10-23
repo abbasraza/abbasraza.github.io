@@ -1,0 +1,14 @@
+---
+layout: post
+title: using cscope with vim
+date: '2010-11-01T15:55:00.006+05:00'
+author: Abbas Raza
+tags:
+- cscope
+- vim
+modified_time: '2011-04-12T13:35:05.396+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-7675115594119325194
+blogger_orig_url: https://abbas-raza.blogspot.com/2010/11/using-cscope-with-vim.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">I have vim7.2 and here are simple steps to start using cscope with vim<br /><br /><ol><li>Make sure you have cscope install on your Linux machine, if not the install it.<br /><br /></li><li>Download the <a href="http://cscope.sourceforge.net/cscope_maps.vim">cscope_maps.vim</a> file, and     arrange for it to be read by Vim at startup time. If you are using Vim 6.x,     stick the file in your $HOME/.vim/plugin directory .  <br /><br />(If you are using Vim 5.x, you can     either cut and paste the entire contents of the cscope_maps file into your     $HOME/.vimrc file, or stick a "source cscope_maps.vim" line into your .vimrc     file)<br /><br /></li><li>Goto your source directory and run commands there<br /><br />&nbsp; # find . -name "*" &gt; cscope.files<br /><br /><br />&nbsp; # cscope -b<br /><br />It will cscope database and generate cscope.out file<br /><br /></li><li>export CSCOPE_DB path<br /><br /># CSCOPE_DB=$PWD/cscope.out<br /># export CSCOPE_DB<br /><br /></li><li>Open any source file with vim and apply command in vim . e.g to find list of functions which are calling the function "packet_setup"  give following command<br /><br />cscope find c packet_setup<br /><br />OR<br /><br />cs f c packet_setup<br /><br />You can use options give below as required...<br /><br />c: Find functions calling this function<br />d: Find functions called by this function<br />e: Find this egrep pattern<br />f: Find this file<br />g: Find this definition<br />i: Find files #including this file<br />s: Find this C symbol<br />t: Find assignments to<br /></li></ol><br /><i><b>** </b>In case of duplicate database error modify cscope_maps.vim and replace</i><br /><i><br /></i><br /><i>&nbsp; if filereadable("cscope.out")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </i><br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cs add cscope.out&nbsp; </i><br /><i><br /></i><br /><i>with </i><br /><i><br /></i><br /><i>if exists("./cscope.out")</i><br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cs add cscope.out</i><br /><br /><i>** You can modify key mappings in cscope_maps.vim&nbsp; according to your choice</i><br /><i><br /></i><br /><i>like we can replace</i><br /><br /><i><c-\>Ctrl backslash C</c-\></i><br /><br />with<br /><br /><f8> </f8><br />F8<br /><br /><br />enjoy</div>

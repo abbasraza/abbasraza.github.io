@@ -1,0 +1,12 @@
+---
+layout: post
+title: swapping vs paging
+date: '2013-06-02T16:28:00.001+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2013-06-02T16:28:12.230+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-4648345370216988973
+blogger_orig_url: https://abbas-raza.blogspot.com/2013/06/swapping-vs-paging.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">OS uses virtual memory, so that disk area (swap space) is used as an  extension of physical memory for temporary storage when the operating  system tries to keep track of processes requiring more physical memory  than what is available.  When this happens the swap space is used for  swapping and paging.<br /><br />&nbsp;  <br /><span style="background-color: yellow;">Paging is when individual memory segments, or pages, are moved to or  from the swap area.</span>  When memory is low portions of a process (data  areas, but not instructions which are available from local or remote  file systems) are moved to free up memory space.  Segments are chosen to  be moved if they haven't been referenced recently.  When the process  next tries to reference this segment a page fault occurs and the process  is suspended until the segment is returned to memory.  A page fault is  normally returned the first time a program is started, as it won't be in  memory.  It's then paged from the local or remote file system.<br /><span style="background-color: yellow;"> Swapping happens under a heavier work load</span>.  <span style="background-color: yellow;">With swapping the kernel  moves all segments belonging to a process to the swap area.</span>  The process  is chosen  if it's not expected to be run for a while.  Before the  process can run again it must be copied back into physical memory. <br /></div>

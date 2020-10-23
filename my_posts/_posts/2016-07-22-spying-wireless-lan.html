@@ -1,0 +1,12 @@
+---
+layout: post
+title: Spying wireless LAN
+date: '2016-07-22T12:38:00.002+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-07-22T12:38:39.002+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-4458648212660147582
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/07/spying-wireless-lan.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Wireshark should run in monitor mode<br />or wireless interface should be configured in monitor mode so that it can monitor the wireless packets<br /><br />In wireshark preferences select option to decrypt 802.11 traffic and add keys something like<br /><br />WPA PSK &nbsp;= Add plain text wifi pre shared key<br />WPA PWD = Plaintextsharekey:SSIDinplaintext<br />WPA PWD = Plaintextsharekey<br /><div><br /></div><div><br /></div><div>Then start capturing the packets, you will be able to see TCP/IP packets</div></div>

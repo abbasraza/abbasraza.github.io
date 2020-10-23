@@ -1,0 +1,13 @@
+---
+layout: post
+title: Install an RPM Package on Ubuntu Linux
+date: '2011-10-12T18:10:00.000+05:00'
+author: Abbas Raza
+tags:
+- ubuntu rpm
+modified_time: '2011-10-12T18:10:11.306+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-6828279731206982772
+blogger_orig_url: https://abbas-raza.blogspot.com/2011/10/install-rpm-package-on-ubuntu-linux.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><h2><span class="Apple-style-span" style="font-size: small; font-weight: normal;"><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">Installing software on Ubuntu usually entails using Synaptic or  by using an apt-get command from the terminal. Unfortunately, there are  still a number of packages out there that are only distributed in RPM  format.</span></span></h2><div class="thecontent"> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">There’s a utility called Alien that converts packages from one format  to the other. This doesn’t always mean that an rpm will work on your  system, though. You will need to install some prerequisite software  packages in order to install alien, however. These packages include gcc  and make.</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">Run this command to install alien and other necessary packages:</span><br /><blockquote><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sudo apt-get install alien dpkg-dev debhelper build-essential</span><br /></blockquote><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">To convert a package from rpm to debian format, use this command  syntax. The sudo may not be necessary, but we’ll include it just in  case.</span><br /><blockquote><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sudo alien packagename.rpm</span><br /></blockquote><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">To install the package, you’ll use the dpkg utility, which is the internal package management tool behind debian and Ubuntu.</span><br /><blockquote><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sudo dpkg -i packagename.deb</span><br /></blockquote><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">The package should now be installed, providing it’s compatible with your system.</span></div></div>

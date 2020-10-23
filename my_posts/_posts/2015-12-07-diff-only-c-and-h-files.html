@@ -1,0 +1,12 @@
+---
+layout: post
+title: diff only C and H files
+date: '2015-12-07T11:18:00.001+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2015-12-07T11:18:55.822+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-8196919991829960591
+blogger_orig_url: https://abbas-raza.blogspot.com/2015/12/diff-only-c-and-h-files.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">diff -wbur old/gdb-7.8.1/gdb/ gdb2/gdb-7.8.1/gdb/ -X &lt;(find old/gdb-7.8.1/gdb/ gdb2/gdb-7.8.1/gdb/ -type f -not -name '*.[ch]') | grep -v Only &gt; &nbsp;k</div>

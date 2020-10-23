@@ -1,0 +1,12 @@
+---
+layout: post
+title: How many lines of code in your project
+date: '2017-05-03T07:59:00.002+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2017-05-03T07:59:35.404+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-5306353822042378849
+blogger_orig_url: https://abbas-raza.blogspot.com/2017/05/how-many-lines-of-code-in-your-project.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><span style="font-size: x-small;"><i>lets say you want to find out the lines of code in MasterCpp project/repo.</i></span><br /><span style="font-size: x-small;"><i><br /></i></span><span style="font-size: x-small;"><i>cd MasterCpp</i></span><br /><span style="font-size: x-small;"><br /></span><span style="font-size: x-small;">find . "(" -name "*.h" -or -name "*.m" -or -name "*.mm" -or -name "*.hpp" -or -name "*.cpp" &nbsp;-or &nbsp;-name "*.c" -or -name "*.cc" -or -name "*.swift" ")" -print0 | xargs -0 wc -l</span><br /><span style="font-size: x-small;"><br /></span><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp;158 ./HorseRace/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp;129 ./Linked List/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp; 15 ./MasterC++/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp; 50 ./NickGenerator/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp;135 ./Parser/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp;149 ./ParserMix/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp;105 ./PersonSort/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp; 46 ./PointerToPointer/main.cpp</span><br /><span style="font-size: x-small;">&nbsp; &nbsp; &nbsp;787 total</span></div>

@@ -1,0 +1,12 @@
+---
+layout: post
+title: why query response time high?
+date: '2018-05-01T04:52:00.000+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2018-05-01T04:52:03.368+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-6943653873324213193
+blogger_orig_url: https://abbas-raza.blogspot.com/2018/05/why-query-response-time-high.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Test machine location: Ireland<br />DB: Amsterdam<br />Distance: 760km<br /><br />Query : insert into abc (bla, bla, bla ....) VALUE (bla, bla blab l , bla )<br /><br />time taken average: 50ms<br /><br />which is high.<br /><br />so<br /><br />where are those 50ms consumed? in DB? in network while transferring data?<br /><br />find rtt (round trip time if you can ping the db)<br /><br />otherwise<br /><br />find machine at similar location to which you can ping and find ping time.<br /><br />otherwise<br />try hping<br /><br />ubuntu@ip-172-31-8-106:~/abbas$ sudo hping3 -S -p 4200 tridonic.westeurope.azure.cratedb.net -c 1<br />HPING tridonic.westeurope.azure.cratedb.net (eth0 13.73.227.111): S set, 40 headers + 0 data bytes<br />len=44 ip=13.73.227.111 ttl=40 DF id=0 sport=4200 flags=SA seq=0 win=29200 rtt=12.0 ms<br /><br />--- tridonic.westeurope.azure.cratedb.net hping statistic ---<br />1 packets transmitted, 1 packets received, 0% packet loss<br />round-trip min/avg/max = 12.0/12.0/12.0 ms<br /><br /><br />this will do<br /><br /><br />23:50:49.346416 IP ip-172-31-8-106.eu-central-1.compute.internal.2054 &gt; 13.73.227.111.4200: Flags [S], seq 550586093, win 512, length 0<br />E..(....@.4s...j.I.o...h .F.J.h\P.......<br />23:50:49.356321 IP 13.73.227.111.4200 &gt; ip-172-31-8-106.eu-central-1.compute.internal.2054: Flags [S.], seq 2591590510, ack 550586094, win 29200, options [mss 1398], length 0<br />E..,..@.(....I.o...j.h...x.n .F.`.r........v<br />23:50:49.356337 IP ip-172-31-8-106.eu-central-1.compute.internal.2054 &gt; 13.73.227.111.4200: Flags [R], seq 550586094, win 0, length 0<br />E..(.j@.@..$...j.I.o...h .F.....P....q..<br /><br /><br /><br />http://wintelguy.com/wanlat.html</div>

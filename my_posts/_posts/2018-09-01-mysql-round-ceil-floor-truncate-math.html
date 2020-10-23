@@ -1,0 +1,13 @@
+---
+layout: post
+title: mysql ROUND, CEIL, FLOOR, TRUNCATE (math functions)
+date: '2018-09-01T07:45:00.002+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2018-09-01T07:46:41.127+05:00'
+thumbnail: https://4.bp.blogspot.com/-epiGcOz6QQM/W4n8FA7WgjI/AAAAAAAANhU/3qZ9GZGERw017Y5QKQkUhaTFRHwHqcTLQCLcBGAs/s72-c/Screen%2BShot%2B2018-09-01%2Bat%2B7.39.57%2Bam.png
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-4010420433634647
+blogger_orig_url: https://abbas-raza.blogspot.com/2018/09/mysql-round-ceil-floor-truncate-math.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><div class="separator" style="clear: both; text-align: center;"><br /></div><pre>floor() --&gt; take down</pre><pre>ceil() --&gt; take up</pre><pre>round() --&gt; either floor() or ceil() whichever is closer </pre><pre>truncate() --&gt; discard fractional part</pre><pre><br /></pre><pre>SELECT 1.1              as number,</pre><pre>       round(1.1)       as 'round(number)',<br />       floor(1.1)       as 'floor(number)',<br />       ceil(1.1)        as 'ceil(number)',<br />       truncate(1.1, 0) as 'truncate(number, 0)'<br />union<br />select 4.6,<br />       round(4.6),<br />       floor(4.6),<br />       ceil(4.6),<br />       truncate(4.6, 0)<br />union<br />select 6.9,<br />       round(6.9),<br />       floor(6.9),<br />       ceil(6.9),<br />       truncate(6.9, 0) </pre><pre></pre><pre></pre><div class="separator" style="clear: both; text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-epiGcOz6QQM/W4n8FA7WgjI/AAAAAAAANhU/3qZ9GZGERw017Y5QKQkUhaTFRHwHqcTLQCLcBGAs/s1600/Screen%2BShot%2B2018-09-01%2Bat%2B7.39.57%2Bam.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="290" data-original-width="1600" height="116" src="https://4.bp.blogspot.com/-epiGcOz6QQM/W4n8FA7WgjI/AAAAAAAANhU/3qZ9GZGERw017Y5QKQkUhaTFRHwHqcTLQCLcBGAs/s640/Screen%2BShot%2B2018-09-01%2Bat%2B7.39.57%2Bam.png" width="640" /></a></div><br /></div>

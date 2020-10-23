@@ -1,0 +1,12 @@
+---
+layout: post
+title: Tracing in Linux (Part1)
+date: '2013-09-25T16:06:00.003+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2013-09-25T16:06:31.408+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-5673440727006832024
+blogger_orig_url: https://abbas-raza.blogspot.com/2013/09/tracing-in-linux-part1.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br />=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*<br /><div style="text-align: center;"><b><span style="font-size: large;">Using Ftrace</span></b></div>=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*<br /><br />Pre-requisites:<br />~~~~~~~~~~~~~~~<br />Enable appropriate options for ftrace in kernel and build it.<br />Mount debugfs.<br /><br />Tracing chipidea driver:<br />~~~~~~~~~~~~~~~~~~~~~~~~<br /><br />cd driver/usb/chipidea/<br /><br />ctags &nbsp;-R --c-kinds=f &nbsp;-n --format=1<br /><br />Edit tags file so that only function names are in it.<br /><br />copy tags file (name it func_list) to target board<br /><br /><br />===== Script to setup tracing ============<br />./setup_trace.sh func_list<br />==========================================<br />echo 0 &gt; tracing_on<br />echo function &gt; current_tracer<br />echo "" &nbsp;&gt; trace<br />#echo "ci_irq" &gt; set_ftrace_filter<br /><br />i=0<br /><br />while read line &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />do &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; echo "$line" &gt;&gt; set_ftrace_filter &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; echo "$line" &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; i=$((i+1))<br />&nbsp; &nbsp; echo $i<br /><br />done &lt;/$1<br />===========================================<br /><br />===========================================<br />Script to Start tracing ./tstart.sh<br />===========================================<br />echo "" &gt; trace<br />echo 1 &gt; tracing_on<br />===========================================<br /><br />===========================================<br />Script to stop tracing (./tpause.sh<br />===========================================<br />echo 0 &gt; tracing_on<br />===========================================<br /><br />Save trace file into a temp file, copy it to host machine for analysis.<br /></div>

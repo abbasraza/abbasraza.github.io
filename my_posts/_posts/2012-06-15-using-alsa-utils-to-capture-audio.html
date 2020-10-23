@@ -1,0 +1,12 @@
+---
+layout: post
+title: Using alsa utils to capture audio
+date: '2012-06-15T03:52:00.003+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2012-06-15T03:52:43.362+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-9044458467261907195
+blogger_orig_url: https://abbas-raza.blogspot.com/2012/06/using-alsa-utils-to-capture-audio.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><pre wrap=""><span style="font-family: 'Courier New', Courier, monospace;">Capturing audio using alsa utils and how to specify the capture and playback device:</span></pre><pre wrap=""><span style="font-family: 'Courier New', Courier, monospace;"><br /></span></pre><pre wrap=""><span style="font-family: 'Courier New', Courier, monospace;">Device, sub device numbers can be retrieved from /proc</span></pre><pre wrap=""><span style="font-family: 'Courier New', Courier, monospace;"><br /></span></pre><pre wrap=""><span style="font-family: 'Courier New', Courier, monospace;">root@crossville:~# ls /proc/asound/card0/<br />codec#0  id       pcm0c    pcm0p    pcm1c    pcm1p    pcm2c<br />root@crossville:~# cat /proc/asound/card0/pcm0c/info <br />card: 0<br />device: 0<br />subdevice: 0<br />stream: CAPTURE<br />id: ALC888 Analog<br />name: ALC888 Analog<br />subname: subdevice #0<br />class: 0<br />subclass: 0<br />subdevices_count: 1<br />subdevices_avail: 1<br />root@crossville:~# <br />root@crossville:~# cat /proc/asound/card0/pcm2c/info<br />card: 0<br />device: 2<br />subdevice: 0<br />stream: CAPTURE<br />id: ALC888 Analog<br />name: ALC888 Analog<br />subname: subdevice #0<br />class: 0<br />subclass: 0<br />subdevices_count: 1<br />subdevices_avail: 1<br />root@crossville:~# <br /><br /><br />arecord -f cd -D hw:0,2 | aplay -f cd -D hw:0,0<br /><br />I used device #2 of card0 which is a capturing device for recording and device #0 of card0 which is both playback &amp; capturing device as playback.<br /><br /></span><br /></pre></div>

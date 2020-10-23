@@ -1,0 +1,12 @@
+---
+layout: post
+title: Rule for mysql debugging
+date: '2017-02-25T20:26:00.001+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2017-02-25T20:26:28.186+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-3401232493252851754
+blogger_orig_url: https://abbas-raza.blogspot.com/2017/02/rule-for-mysql-debugging.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">1. Always use the client which is used by your application to access DB. Don't trust mysqlPro like clients when doing performance optimisations and measuring time taken by a query. for example I used libmysqlclient and wrote a small C program to find the difference in time taken by queries.<br /><br />2. Any application which is involved in accessing the DB should have optimised queries. Its very important. Use the right index, &nbsp;fetch necessary data, check JOINS etc</div>

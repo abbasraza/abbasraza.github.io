@@ -1,0 +1,13 @@
+---
+layout: post
+title: 'Gtk-WARNING **: cannot open display:'
+date: '2011-03-31T13:16:00.000+05:00'
+author: Abbas Raza
+tags:
+- ubuntu gui gtk display
+modified_time: '2011-03-31T13:16:58.481+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-4689866767365103562
+blogger_orig_url: https://abbas-raza.blogspot.com/2011/03/gtk-warning-cannot-open-display.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">After new ubuntu installation on my system i was trying to open wiresharkon terminal but was getting this error<br /><br /><i>root@localhost:~# sudo wireshark <br /><br />(wireshark:21267): Gtk-WARNING **: cannot open display:&nbsp;</i><br /><i></i><br /><br />Actually it was happening with any gui application .. then i found solution for it.<br /><br />run command<br /><br /><i>root@localhost:~# export DISPLAY=:0.0</i><br /><br /><i>Now you can run gui successfully :)</i><a class="cssButton" href="javascript:void(0)" id="publishButton" onclick="if (this.className.indexOf(&quot;ubtn-disabled&quot;) == -1) {var e = document['postingForm'].publish;(e.length) ? e[0].click() : e.click(); if (window.event) window.event.cancelBubble = true; return false;}" target=""><div class="cssButtonOuter"><div class="cssButtonMiddle"><div class="cssButtonInner">Publish Post</div></div></div></a></div>

@@ -1,0 +1,12 @@
+---
+layout: post
+title: Finding if a linux userspace thread is stuck or running
+date: '2016-03-07T05:46:00.002+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-03-07T05:56:29.492+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-6764021019482523053
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/03/finding-if-linux-userspace-thread-is.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">gdb -p <pid multi="" of="" process="" threaded=""></pid><br /><br />info threads<br /><br />thread 7<br /><br />bt<br /><br /><br />ok this is our thread of interest (LWP 1234 will be the task id)<br /><br /><br /><br />now<br /><br /><br />cat /proc/pid/task/task-id/status<br /><br /><br />Look at the "voluntary context switches" &amp; "non voluntary context switches" &nbsp;counters.</div>

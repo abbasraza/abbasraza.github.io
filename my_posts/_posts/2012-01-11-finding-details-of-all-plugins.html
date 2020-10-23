@@ -1,0 +1,13 @@
+---
+layout: post
+title: Finding details of all plugins supported by Gstreamer
+date: '2012-01-11T03:58:00.000+05:00'
+author: Abbas Raza
+tags:
+- gstreamer
+modified_time: '2012-01-11T03:58:55.317+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-519709633101646334
+blogger_orig_url: https://abbas-raza.blogspot.com/2012/01/finding-details-of-all-plugins.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">Use following sequence of commands to get details of all the plugins supported by Gstreamer on your system. Details mean gst-inspect of all plugins.&nbsp;</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">gst-inspect &gt; supported&nbsp;</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">vim supported</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">%s/\: &nbsp;/\: &nbsp;gst-inspect /</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">%s/\: &nbsp;/\r/</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">%s/\:/\r/</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">wq</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">grep -Ii gst-inspect supported &amp;&gt; supportedInspectCMD</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">chmod +x supportedInspectCMD&nbsp;</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">./supportedInspectCMD &gt; supportedInspect</span><br /></div>

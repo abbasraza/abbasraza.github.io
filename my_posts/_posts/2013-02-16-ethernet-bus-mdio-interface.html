@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'Ethernet Bus MDIO Interface  '
+date: '2013-02-16T05:29:00.000+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2013-02-16T05:29:13.405+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-5969399725928268150
+blogger_orig_url: https://abbas-raza.blogspot.com/2013/02/ethernet-bus-mdio-interface.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><div style="text-align: left;">The MDIO interface is a simple, two-wire, serial interface, clock and data.</div>MDIO is used to connect a management entity and a managed PHY for the purposes of controlling the PHY and gathering status from the PHY.<br />The two lines include the MDC line [Management Data Clock], and the MDIO line [Management Data Input/Output].<br />The clock is point-to-point [driven by the MAC], while the data line is a bi-directional multi-drop interface.<br />The data line is Tri-state able and can drive 32 devices. [<a href="http://www.interfacebus.com/IC_Tri-State_Output_pins.html" title="What does Tristate mean">Tristate Definition</a>]<br />The clock is defined with a period of 400nS, or a frequency of 2.5MHz. No data on the minimum or maximum pulse rise time.<br />Data is stable both 10nS before the rising edge of the clock and 10nS  after the edge. Data is assumed to be valid at the rising edge.<br />  <br />The MDIO interface is found on a number of devices.<br />MDIO is also a part of the Ethernet Bus MII Interface. That link provides both the pin locations on the MDIO connector and of course the pin numbers.<br />Pin two is used to carry the data line [MDIO] and pin three is used to carry the clock line [MDC].<br /></div>

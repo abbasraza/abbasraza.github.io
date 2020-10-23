@@ -1,0 +1,13 @@
+---
+layout: post
+title: The volatile Qualifier
+date: '2012-01-06T02:35:00.000+05:00'
+author: Abbas Raza
+tags:
+- c language
+modified_time: '2012-01-06T02:35:52.058+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-1225149269655922398
+blogger_orig_url: https://abbas-raza.blogspot.com/2012/01/volatile-qualifier.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">This is sort of the inverse to const. It tells the compiler explicitly that the specified variable will change its value. It’s included in the language to prevent the compiler from</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">optimizing away seemingly redundant assignments to a variable, or repeated examination&nbsp;of a variable without its value seemingly changing. A good example is to consider an&nbsp;I/O port. Suppose you have an output port that’s pointed to by a variable in your program called outPort. If you want to write two characters to the port, for example an O&nbsp;followed by an N, you might have the following code:</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">*outPort = 'O';</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">*outPort = 'N';</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">A smart compiler might notice two successive assignments to the same location and,&nbsp;because outPort isn’t being modified in between, simply remove the first assignment&nbsp;from the program.To prevent this from happening, you declare outPort to be a&nbsp;volatile pointer, as follows:</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">volatile char&nbsp;*outPort;</span><br /><div><br /></div></div>

@@ -1,0 +1,12 @@
+---
+layout: post
+title: libcurl
+date: '2016-03-30T13:50:00.000+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-03-30T13:50:07.957+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-1439153950272942857
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/03/libcurl.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">cross compiling:<br /><br />$ CC=arm-linux-gnueabi-gcc ./configure --prefix=/media/sf_work/curl-7.20.0/build --host=arm-linux-gnueabi &nbsp;--with-random=/dev/urandom --with-sysroot=/usr/local/arm-linux-gnueabi/sys-root/ &nbsp;--enable-debug --disable-curldebug<br /><div><br /></div><div>$ make&nbsp;</div><div><br /></div><div>$ make install</div><div><br /></div><div>this will compile curl libraries with debug symbols.</div><div><br /></div><div>so you can place them on target and use gdb to set break points and debug symbols.</div><div><br /></div><div>just replace the old libcurl libraries with the new one.</div><div><br /></div><div>NOTE: curl options are best to configure curl . CURL_OPT_* must go through them whenever a problem occurs.</div><div><br /></div><div><br /></div><div>CURL DEBUGGING:</div><div><div>curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);</div><div>FILE * filep = fopen("/home/root/curl_dump", "a");</div><div>curl_easy_setopt(curl, CURLOPT_STDERR, filep);</div></div><div><br /></div><div>this will create file curl_dump with all verbose curl messages.</div><div><br /></div><div>you can place your own debug messages in curl as well using finfo()...something like that</div><div><br /></div><div><br /></div><div>cat /proc/PID/fd/2 --&gt; stderr</div><div>cat /proc/PID/fd/1 --&gt; stdout?</div></div>

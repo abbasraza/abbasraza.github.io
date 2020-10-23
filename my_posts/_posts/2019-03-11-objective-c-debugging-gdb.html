@@ -1,0 +1,12 @@
+---
+layout: post
+title: objective-c debugging gdb
+date: '2019-03-11T14:47:00.003+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2019-03-11T14:47:46.555+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-3564305497574097550
+blogger_orig_url: https://abbas-raza.blogspot.com/2019/03/objective-c-debugging-gdb.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><b>po (print object) command</b><br /><br />(gdb) print cacheRecordCreateQuery<br />$1 = (struct NSString *) 0x1c192400<br /><br /><br />(gdb) po cacheRecordCreateQuery<br />REPLACE INTO CacheRecord SET DateTime=from_unixtime(1552297329, '%Y-%m-%d %h:%i:%s.498'), CurrentCommErrors=0, CalculatedOperatingTimeDelta=11358.68333333333, EnergyUsageDelta=230862.6944049333, MinLevel=173, CalculatedPowerConsumption=230862.6944049333, ThermalOverload=0, TotalCommErrors=0, SystemFailLevel=254, ThermalShutdown=0, devicetypeid='1', MacAddress='00134ABBA500', ErrorState=0, CurrentStrikeCount=23, SystemTime=from_unixtime(1552297330, '%Y-%m-%d %h:%i:%s.127'), Address=1, CurrentDayCount=1, CalculatedOperatingTime=11358.68333333333, FadeRateTime=7, DimLevel=108, MaxLevel=254, PowerOnLevel=255, Groups='1', TotalDayCount=0, PowerRecover=0, LimitError=0, SiteID=980, LampFail=0, LineID=11781, LineNumber=1, InterfaceID=2787, TotalStrikeCount=0, ActuatorTypeID=5<br />(gdb)</div>

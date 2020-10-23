@@ -1,0 +1,12 @@
+---
+layout: post
+title: bootable ubuntu usb disk (for installation + live) on Mac OS
+date: '2016-04-07T09:05:00.001+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-04-07T09:05:56.452+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-830433867444952146
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/04/bootable-ubuntu-usb-disk-for.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><br /><ol style="text-align: left;"><li>Download ubuntu.iso desktop</li><li>hdiutil convert -format UDRW -o ~/Downloads/target.img ~/Downloads/ubuntu.iso</li><li>Insert USB disk</li><li>diskutil unmountDisk /dev/disk10s1</li><li>&nbsp;sudo dd if=target.img.dmg of=/dev/disk10 bs=1m</li></ol></div>

@@ -1,0 +1,17 @@
+---
+layout: post
+title: Removing duplicate lines, duplicate domains from a text file containing urls
+  using vim
+date: '2010-12-11T06:59:00.001+05:00'
+author: Abbas Raza
+tags:
+- remove duplicate vim
+- vim
+- regular expression
+- regexp
+modified_time: '2010-12-11T07:02:00.090+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-2246164508420104630
+blogger_orig_url: https://abbas-raza.blogspot.com/2010/12/removing-duplicate-lines-duplicate.html
+---
+
+I got problem when i was trying to remove duplicate domains from a text file containing lots of urls. So after playing a little bit with regular expressions in vim, I got my command<br /><ol><li>To remove duplicate lines use vim command 'sort u'.</li><li>To remove duplicate domains from urls use following regular expression with global(g) command in vim<br /><span style="font-family: Times,&quot;Times New Roman&quot;,serif; font-size: small;">g/^\(.*\/\).*$\n\1/d</span></li></ol>

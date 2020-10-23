@@ -1,0 +1,12 @@
+---
+layout: post
+title: binding a process to a CPU (cpu affinity of a process)
+date: '2016-08-24T08:07:00.003+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-08-24T08:07:34.196+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-3597538735392902289
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/08/binding-process-to-cpu-cpu-affinity-of.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">ubuntu@auwgtrun02:~$ taskset -p 14726<br />pid 14726's current affinity mask: 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -----------&gt; running on CPU1<br /><br />ubuntu@auwgtrun02:~$ taskset -p f 14726<br />pid 14726's current affinity mask: 1<br />pid 14726's new affinity mask: f &nbsp; &nbsp; -----------&gt; will run on CPU1, CPU2, CPU3, CPU4 now<br />ubuntu@auwgtrun02:~$ taskset -p 14726<br />pid 14726's current affinity mask: f<br />ubuntu@auwgtrun02:~$<br />ubuntu@auwgtrun02:~$ taskset -p 1 14726<br />pid 14726's current affinity mask: f<br />pid 14726's new affinity mask: 1 &nbsp;&nbsp;-----------&gt; will run on CPU1 now<br />ubuntu@auwgtrun02:~$ taskset -p 14726<br />pid 14726's current affinity mask: 1</div>

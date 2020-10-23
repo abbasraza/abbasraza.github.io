@@ -1,0 +1,12 @@
+---
+layout: post
+title: Spinlocks 1
+date: '2013-04-06T00:30:00.000+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2013-04-06T00:30:23.052+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-2258081144591085950
+blogger_orig_url: https://abbas-raza.blogspot.com/2013/04/spinlocks-1.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><b>Spinlocks not recommended on single core processor:</b><br />Consider you have only single processor system, a thread #1 acquires the spin lock and when it is preempted it goes to sleep. Then another thread #2 is scheduled and it tries to get the same spin lock, keeps spinning because its already locked, keeps spinning until its time slice gets finished. So actually it has wasted a lot of cpu cycles while waiting for spin lock which was locked by the sleeping thread. So on single processor system, spinlocks are not allowed. Instead thread #2 should goto sleep immediately after knowing that lock is already taken.<br /><br /><b>Spinlocks are used on multicore processor:</b><br />On multicore processors spinlocks can be used. But code inside the lock must be un-incorruptible/Atomic. It should never sleep (it can be interrupted only by interrupts in some cases)<br /><br /><quote></quote><br />Quoting LDD:<br />Therefore, the core rule that applies to spinlocks is that any code  must, while holding a spinlock, be atomic. It cannot sleep; in fact, it  cannot relinquish the processor for any reason except to service  interrupts (and sometimes not even then).<br /><quote></quote><br /><div style="text-align: left;"><br /></div><div style="text-align: left;"><br /></div><br /><div style="text-align: left;"><b>spin_lock_irqsave</b> disables interrupts (on&nbsp;the local processor only) before taking the spinlock; the previous interrupt state is&nbsp;stored in flags. If you are absolutely sure nothing else might have already disabled&nbsp;interrupts on your processor (or, in other words, you are sure that you should enable</div><div style="text-align: left;">interrupts when you release your spinlock), you can use spin_lock_irq instead and&nbsp;not have to keep track of the flags.</div><div style="text-align: left;"><br /></div></div>

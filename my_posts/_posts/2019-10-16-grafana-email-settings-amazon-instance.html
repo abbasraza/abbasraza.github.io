@@ -1,0 +1,12 @@
+---
+layout: post
+title: Grafana Email settings Amazon instance
+date: '2019-10-16T04:51:00.002+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2019-10-16T04:51:10.763+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-250402541225966127
+blogger_orig_url: https://abbas-raza.blogspot.com/2019/10/grafana-email-settings-amazon-instance.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">sudo vim /etc/grafana/grafana.ini<br /><br />#################################### SMTP / Emailing ##########################<br />[smtp]<br />enabled = true<br /><b>host = email-smtp.eu-west-1.amazonaws.com:587</b><br /><b>user = PUT_USER_HERE</b><br /><br /># If the password contains # or ; you have to wrap it with trippel quotes. Ex """#password;"""<br /><b>password = PUT_PASSWORD_HERE</b><br />;cert_file =<br />;key_file =<br />;skip_verify = false<br /><b>from_address = grafana@tridonic.com</b><br /><b>from_name = Heimdallr Grafana</b><br /># EHLO identity in SMTP dialog (defaults to instance_name)<br />;ehlo_identity = dashboard.example.com<br /><br /><br /><br /><br />sudo cat /etc/ssmtp/ssmtp.conf<br />#<br /># Config file for sSMTP sendmail<br />#<br /># The person who gets all mail for userids &lt; 1000<br /># Make this empty to disable rewriting.<br />root=postmaster<br /><br /># The place where the mail goes. The actual machine name is required no<br /># MX records are consulted. Commonly mailhosts are named mail.domain.com<br />mailhub=<span style="color: red;"><b>email-smtp.eu-west-1.amazonaws.com:587</b></span><br />rewritedomain=tridonic.com<br /><br /># Where will the mail seem to come from?<br />#rewriteDomain=<br /><br /># The full hostname<br />hostname=ip-172-31-23-236.eu-west-1.compute.internal<br />#hostname=www.connecdim.com<br /><br /># Are users allowed to set their own From: address?<br /># YES - Allow the user to specify their own From: address<br /># NO - Use the system generated From: address<br />AuthUser=<span style="color: red;"><b>HERE_IS_USER_NAME</b></span><br />AuthPass=<span style="color: red;"><b>HERE_IS_PASSWORD</b></span><br /><br />FromLineOverride=YES<br />UseTLS=YES<br />UseStartTLS=YES<br /><br />#Debug=YES<br /><br /><br /><br /><br /><br /></div>

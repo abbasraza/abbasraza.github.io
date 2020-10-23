@@ -1,0 +1,12 @@
+---
+layout: post
+title: new glibc VS old kernel
+date: '2019-12-11T19:30:00.001+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2019-12-11T19:30:48.852+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-4433187714684774014
+blogger_orig_url: https://abbas-raza.blogspot.com/2019/12/new-glibc-vs-old-kernel.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">root@00134802B5A5:~/2018glibc# ls<br />ld-2.27.so&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;libc-2.27.so&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;libc.so.6&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; libstdc++.so.6&nbsp; &nbsp; &nbsp; &nbsp;libstdc++.so.6.0.24<br />root@00134802B5A5:~/2018glibc# cd ..<br />root@00134802B5A5:~# ./2018glibc/ld-2.27.so --library-path ./2018glibc/ lldb_armv5_bin/llvm-tblgen<br />FATAL: kernel too old<br />root@00134802B5A5:~#</div>

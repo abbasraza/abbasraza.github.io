@@ -1,0 +1,13 @@
+---
+layout: post
+title: SSH into VM ubuntu with NAT configuration
+date: '2016-08-25T19:50:00.004+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2016-08-25T19:50:55.709+05:00'
+thumbnail: https://2.bp.blogspot.com/-qd2s8m2p1sc/V78FeEPKuwI/AAAAAAAAKTM/tP0MW9V6Ro4EH31hbUwP-7tronT1acZ2QCLcB/s72-c/Screen%2BShot%2B2016-08-26%2Bat%2B12.48.59%2BAM.png
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-7338812227932744277
+blogger_orig_url: https://abbas-raza.blogspot.com/2016/08/ssh-into-vm-ubuntu-with-nat.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">if your ubuntu VM (guest) is using NAT network and you want to ssh from host to guest<br />the try port forwarding<br /><br />goto network settings of VM<br /><div class="separator" style="clear: both; text-align: center;"><a href="https://2.bp.blogspot.com/-qd2s8m2p1sc/V78FeEPKuwI/AAAAAAAAKTM/tP0MW9V6Ro4EH31hbUwP-7tronT1acZ2QCLcB/s1600/Screen%2BShot%2B2016-08-26%2Bat%2B12.48.59%2BAM.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="241" src="https://2.bp.blogspot.com/-qd2s8m2p1sc/V78FeEPKuwI/AAAAAAAAKTM/tP0MW9V6Ro4EH31hbUwP-7tronT1acZ2QCLcB/s400/Screen%2BShot%2B2016-08-26%2Bat%2B12.48.59%2BAM.png" width="400" /></a></div>Then ssh from host:<br /><br />ssh ubuntu@localhost -p 2222</div>

@@ -1,0 +1,12 @@
+---
+layout: post
+title: HZ and CONFIG_NO_HZ
+date: '2013-06-21T03:57:00.002+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2013-06-21T03:57:30.515+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-565582306262386739
+blogger_orig_url: https://abbas-raza.blogspot.com/2013/06/hz-and-confignohz.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><div class="post-text">Don't worry! Your confusion is nothing but  expected. Linux timer interrupts are very confusing and have had a long  and quite exciting history.<br />  <strong>CLK_TCK</strong><br />  Linux has no <code>sysconf</code> system call and glibc is just returning the constant value 100. Sorry.<br />  <strong>HZ</strong> <-- p="" probably="" want="" what="" you=""> When configuring your kernel you can choose a timer frequency of  either 100Hz, 250Hz, 300Hz or 1000Hz. All of these are supported, and  although 1000Hz is the default it's not always the best.<br />  People will generally choose a high value when they value latency (a  desktop or a webserver) and a low value when they value throughput  (HPC).<br />  <strong>CONFIG_HIGH_RES_TIMERS</strong><br />  This has nothing to do with timer interrupts, it's just a mechanism  that allows you to have higher resolution timers. This basically means  that timeouts on calls like <code>select</code> can be more accurate than 1/HZ seconds.<br />  <strong>divider</strong><br />  This command line option is a patch provided by Red Hat. You can  probably use this (if you're using Red Hat or CentOS), but I'd be  careful. It's caused lots of bugs and you should probably just recompile  with a different Hz value.<br />  <strong>CONFIG_NO_HZ</strong><br />  This really doesn't do much, it's for power saving and it means that  the ticks will stop (or at least become less frequent) when nothing is  executing. This is probably already enabled on your kernel. It doesn't  make any difference when at least one task is runnable.<br />  Frederic Weisbecker actually has a patch pending which generalizes  this to cases where only a single task is running, but it's a little way  off yet.</--></div></div>

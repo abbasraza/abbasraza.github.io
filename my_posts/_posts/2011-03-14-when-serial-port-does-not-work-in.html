@@ -1,0 +1,13 @@
+---
+layout: post
+title: When serial port does not work in Ubuntu
+date: '2011-03-14T11:35:00.001+05:00'
+author: Abbas Raza
+tags:
+- serial port ubuntu
+modified_time: '2011-03-14T11:38:06.803+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-6195354894405754690
+blogger_orig_url: https://abbas-raza.blogspot.com/2011/03/when-serial-port-does-not-work-in.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">I was trying to connect my powerpc board via serial port to my ubuntu machine but it was not working at all. I was not able to connect to my board via serial port instead of all correct serial port settings on minicom i.e 8N1 . I thought that the serial port of my ubuntu machine was having some problem as i tried to connect my board with other machine and it was working. After googling i found the exact problem which was stopping communication to happen<br /><br />So whenever working with serial port remember following steps in ubuntu<br /><br /><br /><ol><li> <i><b>Configure serial devices</b></i><br />/bin/setserial /dev/ttyS0 baud_base 115200 auto_irq skip_test autoconfig<br /></li><li><i><b>Enable RTS/CTS handshaking</b></i> <br />stty crtscts -F /dev/ttyS0</li></ol>&nbsp;It solved my problem. ;)</div>

@@ -1,0 +1,13 @@
+---
+layout: post
+title: "[Vim] Open file at previous cursor location state"
+date: '2011-09-15T18:14:00.000+05:00'
+author: Abbas Raza
+tags:
+- vim
+modified_time: '2011-09-15T18:14:25.381+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-2139590796525696436
+blogger_orig_url: https://abbas-raza.blogspot.com/2011/09/vim-open-file-at-previous-cursor.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">Add following line to your vimrc file (/etc/vim/vimrc)</span><br /><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">if has("autocmd")</span><br /><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; " When editing a file, always jump to the last cursor position</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; autocmd BufReadPost *</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; \ if line("'\"") &gt; 0 &amp;&amp; line ("'\"") &lt;= line("$") |</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; \ &nbsp; exe "normal g'\"" |</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; \ endif</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">endif</span><br /><div><br /></div></div>

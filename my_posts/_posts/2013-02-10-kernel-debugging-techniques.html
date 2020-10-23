@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'Kernel Debugging Techniques '
+date: '2013-02-10T06:57:00.001+05:00'
+author: Abbas Raza
+tags: 
+modified_time: '2013-06-20T01:19:52.754+05:00'
+blogger_id: tag:blogger.com,1999:blog-3367966882409306161.post-4373574327845109944
+blogger_orig_url: https://abbas-raza.blogspot.com/2013/02/kernel-debugging-techniques.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><br /><b><u>Using dump_stack();</u></b><br /><div><b><u><br /></u></b>set CONFIG_DEBUG_KERNEL=y in kernel config.<br />Call dump_stack() where needed.<br /><br /><br /><div><div>[ &nbsp; 10.195980] Backtrace:&nbsp;</div><div>[ &nbsp; 10.198497] [<80011998>] (dump_backtrace+0x0/0x10c) from [<803c135c>] (dump_stack+0x18/0x1c)<!--803c135c--><!--80011998--></803c135c></80011998></div><div>[ &nbsp; 10.206940] &nbsp;r6:803f914c r5:00000000 r4:ac1ed800 r3:00000000</div><div>[ &nbsp; 10.212724] [<803c1344>] (dump_stack+0x0/0x1c) from [<802c4efc>] (mmc_add_card+0x18/0x1e0)<!--802c4efc--><!--803c1344--></802c4efc></803c1344></div><div>[ &nbsp; 10.221029] [<802c4ee4>] (mmc_add_card+0x0/0x1e0) from [<802c9388>] (mmc_attach_sd+0x180/0x204)<!--802c9388--><!--802c4ee4--></802c9388></802c4ee4></div><div>[ &nbsp; 10.229774] &nbsp;r6:803f914c r5:00000000 r4:ac1ec400</div><div>[ &nbsp; 10.234451] [<802c9208>] (mmc_attach_sd+0x0/0x204) from [<802c489c>] (mmc_rescan+0x24c/0x2ac)<!--802c489c--><!--802c9208--></802c489c></802c9208></div><div>[ &nbsp; 10.243007] &nbsp;r5:ac1ec598 r4:ac1ec400</div><div>[ &nbsp; 10.246627] [<802c4650>] (mmc_rescan+0x0/0x2ac) from [<8003c5cc>] (process_one_work+0x26c/0x424)<!--8003c5cc--><!--802c4650--></8003c5cc></802c4650></div><div>[ &nbsp; 10.255457] &nbsp;r7:802c4650 r6:ac0d9000 r5:805bd200 r4:ac3c32c0</div><div>[ &nbsp; 10.261217] [<8003c360>] (process_one_work+0x0/0x424) from [<8003cc84>] (worker_thread+0x1b4/0x2cc)<!--8003cc84--><!--8003c360--></8003cc84></8003c360></div><div>[ &nbsp; 10.270345] [<8003cad0>] (worker_thread+0x0/0x2cc) from [<80040df4>] (kthread+0x94/0xa0)<!--80040df4--><!--8003cad0--></80040df4></8003cad0></div><div>[ &nbsp; 10.278480] [<80040d60>] (kthread+0x0/0xa0) from [<800263e0>] (do_exit+0x0/0x790)<!--800263e0--><!--80040d60--></800263e0></80040d60></div><div>[ &nbsp; 10.285967] &nbsp;r6:800263e0 r5:80040d60 r4:ac06dee8</div></div><div><br /></div><div><br /></div></div></div>
